@@ -1,0 +1,98 @@
+substitutions:
+  name: plant-waterer
+  friendly_name: Wedding Gift Plant Waterer
+
+esphome:
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+  name_add_mac_suffix: true
+  project:
+    name: mjkl-gh.${name}
+    version: 0.0.1
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+# Allow OTA updates
+ota:
+  - platform: esphome
+
+# Allow provisioning Wi-Fi via serial
+improv_serial:
+
+wifi:
+  # Set up a wifi access point
+  ap:
+    ssid: "ESP Web Tools"
+
+# In combination with the `ap` this allows the user
+# to provision wifi credentials to the device via WiFi AP.
+captive_portal:
+
+dashboard_import:
+  package_import_url: github://esphome/example-configs/esp-web-tools/esp32.yaml@main
+
+# Sets up Bluetooth LE (Only on ESP32) to allow the user
+# to provision wifi credentials to the device.
+esp32_improv:
+  authorizer: none
+
+# To have a "next url" for improv serial
+web_server:
+
+sensor:
+  - platform: adc
+    pin: 32
+    name: Soil Moisture Value
+    attenuation: 11db
+    id: soil_moisture
+    accuracy_decimals: 0
+    unit_of_measurement: "%"
+    update_interval: 10s
+    icon: mdi:flower
+    filters:
+      - calibrate_linear:
+          - 1.795 -> 0.0
+          - 1.43 -> 100.0
+      - sliding_window_moving_average:
+          window_size: 15
+          send_every: 15
+      - median:
+          window_size: 15
+          send_every: 7
+          send_first_at: 3
+
+# This sensor is useful as a trigger for automation in Home Assistant
+# change the value of (soil_moisture).state > to desired threshold
+# anything below this value will report dry in home assistant.
+binary_sensor:
+  - platform: template
+    name: Soil Moisture
+    device_class: moisture
+    #Change this value to determine desire wetness of soil
+    lambda: |-
+      return (id(soil_moisture).state > 35);
+
+# Timed switch for water pump - manually trigger water pump for specified time.
+# Ajust delay to suit lenght of time the pump runs
+# This was added to prevent the plant/ room getting drenched by an
+# accidental press of the switch emptying a whole water resevoir!
+switch:
+  - platform: gpio
+    pin: 26
+    id: relay
+    name: "Water pump"
+    icon: "mdi:water"
+    on_turn_on:
+      - logger.log: "Pump Turned On!"
+      - delay: 30s
+      - switch.turn_off: relay
+      - logger.log: "Pump Turned Off!"
