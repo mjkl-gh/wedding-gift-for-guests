@@ -36,3 +36,7 @@ jobs:
         with:
           name: firmware
           path: ${{ steps.esphome-build.outputs.name }}
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.esphome-build.outputs.name }}
