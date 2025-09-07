@@ -19,24 +19,27 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  build-firmware:
-    name: Generate esphome firmware
+  release:
+    name: Generate Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v5.0.0
       - name: Bump version
         uses: rymndhng/release-on-push-action@master
+        id: bump-version
         with:
           bump_version_scheme: minor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Firmware
         uses: esphome/build-action@v7.0.0
         id: esphome-build
         with:
           yaml-file: firmware/plant-waterer.yaml
           complete-manifest: true
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4.6.2
+      - name: Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: firmware
-          path: ${{ steps.esphome-build.outputs.name }}
+          tag_name: ${{ steps.bump-version.outputs.tag_name }}
+          files: ${{ steps.esphome-build.outputs.name }}/*
