@@ -25,6 +25,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5.0.0
+      - name: Bump version
+        uses: rymndhng/release-on-push-action@master
+        with:
+          bump_version_scheme: minor
       - name: Build Firmware
         uses: esphome/build-action@v7.0.0
         id: esphome-build
@@ -36,8 +40,3 @@ jobs:
         with:
           name: firmware
           path: ${{ steps.esphome-build.outputs.name }}
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.sha }}
-          files: ${{ steps.esphome-build.outputs.name }}
