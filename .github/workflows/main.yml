@@ -8,13 +8,13 @@ permissions:
   contents: write
 jobs:
   build-docs:
-    name: Deploy docs
+    name: Generate docs
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master
+      - name: Checkout
         uses: actions/checkout@v1
 
-      - name: Deploy docs
+      - name: Deploy docs to gh-pages branch (for backwards compatibility)
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -23,7 +23,7 @@ jobs:
     name: Generate Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v5.0.0
       - name: Bump version
         uses: rymndhng/release-on-push-action@master
@@ -38,8 +38,44 @@ jobs:
         with:
           yaml-file: firmware/plant-waterer.yaml
           complete-manifest: true
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: firmware
+          path: ${{ steps.esphome-build.outputs.name }}
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.bump-version.outputs.tag_name }}
           files: ${{ steps.esphome-build.outputs.name }}/*
+
+  deploy_mkdocs:
+    name: Deploy MkDocs and Firmware to GitHub Pages
+    needs: [build-docs, release]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+      - run: mkdir -p firmware
+      - uses: actions/download-artifact@v5
+        with:
+          name: firmware
+          path: firmware
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
