@@ -32,7 +32,7 @@ Om het systeem te bouwen gaan we verschillende stappen doorlopen. Namelijk,
 - Testen
 
 Als je de weg kwijt raakt staan deze stappen in het menu hier links op volgorde. Je kan beginnen door [hier](instructions/flashing-firmware.md) te klikken
-# Home assistant en Esphome
+## Home assistant en Esphome
 
 Dit projectje draait op software gebaseerd op Esphome ,een onderdeel van de "Open home foundation."  Een groep mensen die tegenwicht wil bieden aan een industrie die steeds meer systemen "gesloten" maakt. Waarbij de fabrikant bepaalt hoe en hoe lang jij je spullen kan gebruiken.
 
