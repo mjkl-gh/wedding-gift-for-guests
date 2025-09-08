@@ -7,7 +7,7 @@ Op deze website leg ik uit wat het kado is. Wat je er mee kan en hoe je het in e
 Allereerst, wat gaan we maken:
 
 ## Een automatisch bewateringssysteem!
-![[IMG_20250908_232639.jpg]]
+![plant monitor](img/IMG_20250908_232639.jpg)
 
 Als jullie als duo aanwezig waren, kon je zowel een "Van Hem" als "Van Haar" kado meepakken. Van Anna hebben jullie een bloempot gehad met heerlijke truffelkruidnoten.
 
