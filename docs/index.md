@@ -31,7 +31,7 @@ Om het systeem te bouwen gaan we verschillende stappen doorlopen. Namelijk,
 - Aansluiten van de batterijen
 - Testen
 
-Als je de weg kwijt raakt staan deze stappen in het menu hier links op volgorde. Je kan beginnen door [hier](flashing-firmware.md) te klikken
+Als je de weg kwijt raakt staan deze stappen in het menu hier links op volgorde. Je kan beginnen door [hier](instructions/flashing-firmware.md) te klikken
 # Home assistant en Esphome
 
 Dit projectje draait op software gebaseerd op Esphome ,een onderdeel van de "Open home foundation."  Een groep mensen die tegenwicht wil bieden aan een industrie die steeds meer systemen "gesloten" maakt. Waarbij de fabrikant bepaalt hoe en hoe lang jij je spullen kan gebruiken.
@@ -40,4 +40,4 @@ De open home foundation, met als voornaamse project "Home assistant." Probeert e
 
 Esphome is eerst als add-on ontstaan voor home assistant op eigen open source hardware te programmeren. Echter kan de hardware ook vrij makkelijk gebruikt worden zonder home assistant.
 
-[Hier](home-assistant.md) vind je meer over home assistant en de open home foundation
+[Hier](about/home-assistant.md) vind je meer over home assistant en de open home foundation
