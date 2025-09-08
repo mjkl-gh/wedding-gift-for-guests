@@ -97,3 +97,15 @@ switch:
       - delay: 3s
       - switch.turn_off: relay
       - logger.log: "Pump Turned Off!"
+
+script:
+  - id: water_pump
+    then:
+      - while:
+          condition: 
+            binary_sensor.is_on: binary_soil_moisture
+          then:
+            - switch.turn_on: relay
+            - delay: 1s
+            - switch.turn_off: relay
+            - delay: 9s
