@@ -74,12 +74,13 @@ sensor:
 # change the value of (soil_moisture).state > to desired threshold
 # anything below this value will report dry in home assistant.
 binary_sensor:
-  - platform: template
+  - platform: gpio
+    pin: 33
+    id: binary_soil_moisture
     name: Soil Moisture
     device_class: moisture
-    #Change this value to determine desire wetness of soil
-    lambda: |-
-      return (id(soil_moisture).state > 35);
+    on_press:
+      - script.execute: water_pump
 
 # Timed switch for water pump - manually trigger water pump for specified time.
 # Ajust delay to suit lenght of time the pump runs
@@ -87,12 +88,12 @@ binary_sensor:
 # accidental press of the switch emptying a whole water resevoir!
 switch:
   - platform: gpio
-    pin: 26
+    pin: 23
     id: relay
     name: "Water pump"
     icon: "mdi:water"
     on_turn_on:
       - logger.log: "Pump Turned On!"
-      - delay: 30s
+      - delay: 3s
       - switch.turn_off: relay
       - logger.log: "Pump Turned Off!"
