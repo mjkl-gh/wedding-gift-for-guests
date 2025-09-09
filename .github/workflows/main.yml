@@ -22,6 +22,8 @@ jobs:
   release:
     name: Generate Release
     runs-on: ubuntu-latest
+    outputs:
+      tag_name: ${{ steps.bump-version.outputs.tag_name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
@@ -32,26 +34,29 @@ jobs:
           bump_version_scheme: minor
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build Firmware
-        uses: esphome/build-action@v7.0.0
-        id: esphome-build
-        with:
-          yaml-file: firmware/plant-waterer.yaml
-          complete-manifest: true
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: firmware
-          path: ${{ steps.esphome-build.outputs.name }}
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ steps.bump-version.outputs.tag_name }}
-          files: ${{ steps.esphome-build.outputs.name }}/*
+      - name: Run latest-tag
+        uses: EndBug/latest-tag@latest
+
+  build-firmware:
+      name: Build Firmware
+      uses: esphome/workflows/.github/workflows/build.yml@main
+      needs: release
+      with:
+        files: firmware/plant-waterer.yaml
+        release-version: ${{ needs.release.outputs.tag_name }}
+
+  upload-to-release:
+    name: Upload to Release
+    uses: esphome/workflows/.github/workflows/upload-to-gh-release.yml@main
+    needs:
+      - release
+      - build-firmware
+    with:
+      version:  ${{ needs.release.outputs.tag_name }}
 
   deploy_mkdocs:
     name: Deploy MkDocs and Firmware to GitHub Pages
-    needs: [build-docs, release]
+    needs: [build-docs, upload-to-release]
     permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
