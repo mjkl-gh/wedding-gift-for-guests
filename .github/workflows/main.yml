@@ -75,6 +75,8 @@ jobs:
         with:
           name: firmware
           path: firmware
+      - run: mv */* .
+        working-directory: ./firmware
       - name: Display structure of downloaded files
         run: ls -R
       - name: Setup Pages
