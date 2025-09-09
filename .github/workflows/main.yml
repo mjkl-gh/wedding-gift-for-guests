@@ -44,6 +44,7 @@ jobs:
       with:
         files: firmware/plant-waterer.yaml
         release-version: ${{ needs.release.outputs.tag_name }}
+        combined-name: firmware
 
   upload-to-release:
     name: Upload to Release
@@ -72,6 +73,7 @@ jobs:
       - run: mkdir -p firmware
       - uses: actions/download-artifact@v5
         with:
+          name: firmware
           path: firmware
       - name: Display structure of downloaded files
         run: ls -R
