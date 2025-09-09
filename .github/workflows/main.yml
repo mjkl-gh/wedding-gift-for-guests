@@ -72,7 +72,6 @@ jobs:
       - run: mkdir -p firmware
       - uses: actions/download-artifact@v5
         with:
-          name: firmware
           path: firmware
       - name: Display structure of downloaded files
         run: ls -R
