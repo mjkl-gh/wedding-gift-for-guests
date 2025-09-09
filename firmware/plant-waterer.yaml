@@ -31,14 +31,15 @@ improv_serial:
 wifi:
   # Set up a wifi access point
   ap:
-    ssid: "ESP Web Tools"
+    ssid: "Plant Waterer"
 
 # In combination with the `ap` this allows the user
 # to provision wifi credentials to the device via WiFi AP.
 captive_portal:
 
 dashboard_import:
-  package_import_url: github://esphome/example-configs/esp-web-tools/esp32.yaml@main
+  package_import_url: github://mjkl-gh/wedding-gift-for-guests/firmware/plant-waterer.yaml
+  import_full_config: true # or true
 
 # Sets up Bluetooth LE (Only on ESP32) to allow the user
 # to provision wifi credentials to the device.
@@ -87,16 +88,22 @@ binary_sensor:
 # This was added to prevent the plant/ room getting drenched by an
 # accidental press of the switch emptying a whole water resevoir!
 switch:
-  - platform: gpio
-    pin: 23
-    id: relay
+  - platform:  output
     name: "Water pump"
     icon: "mdi:water"
+    id: pump
+    output: relay
     on_turn_on:
       - logger.log: "Pump Turned On!"
       - delay: 3s
-      - switch.turn_off: relay
+      - switch.turn_off: pump
       - logger.log: "Pump Turned Off!"
+
+output:
+  - platform: gpio
+    pin: 23
+    id: relay
+    inverted: True
 
 script:
   - id: water_pump
@@ -105,7 +112,7 @@ script:
           condition: 
             binary_sensor.is_on: binary_soil_moisture
           then:
-            - switch.turn_on: relay
+            - output.turn_on: relay
             - delay: 1s
-            - switch.turn_off: relay
+            - output.turn_off: relay
             - delay: 9s
