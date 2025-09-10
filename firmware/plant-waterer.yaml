@@ -76,10 +76,17 @@ sensor:
 # anything below this value will report dry in home assistant.
 binary_sensor:
   - platform: gpio
-    pin: 33
+    pin:
+      number: 33
+      mode:
+        input: true
+        pullup: true
     id: binary_soil_moisture
     name: Soil Moisture
     device_class: moisture
+    filter:
+      - delayed_on: 100ms
+      - delayed_off: 100ms
     on_press:
       - script.execute: water_pump
 
