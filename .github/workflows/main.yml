@@ -40,41 +40,68 @@ jobs:
   
 
   build-firmware:
-      name: Build Firmware
-      needs: release
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v5.0.0
-        - name: override placeholder version
-          uses: mikefarah/yq@master
-          with:
-            cmd: yq -i '.esphome.project.version = "${{ needs.release.outputs.tag_name }}"' 'firmware/plant-waterer.yaml'
-        - name: Build Firmware
-          uses: esphome/build-action@v7.0.0
-          id: esphome-build
-          with:
-            yaml-file: firmware/plant-waterer.yaml
-            complete-manifest: true
-        - name: Upload artifact
-          uses: actions/upload-artifact@v4.6.2
-          with:
-            name: firmware
-            path: ${{ steps.esphome-build.outputs.name }}
-        - name: Release
-          uses: softprops/action-gh-release@v2
-          with:
-            tag_name: ${{ needs.release.outputs.tag_name }}
-            files: ${{ steps.esphome-build.outputs.name }}/*
+    name: Build Firmware
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5.0.0
+      - name: override placeholder version
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq -i '.esphome.project.version = "${{ needs.release.outputs.tag_name }}"' 'firmware/plant-waterer.yaml'
+      - name: Build Firmware
+        uses: esphome/build-action@v7.0.0
+        id: esphome-build
+        with:
+          yaml-file: firmware/plant-waterer.yaml
+          complete-manifest: true
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: firmware
+          path: ${{ steps.esphome-build.outputs.name }}
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.release.outputs.tag_name }}
+          files: ${{ steps.esphome-build.outputs.name }}/*
 
   upload-to-release:
-    name: Upload to Release
-    uses: esphome/workflows/.github/workflows/upload-to-gh-release.yml@main
-    needs:
-      - release
-      - build-firmware
-    with:
-      version:  ${{ needs.release.outputs.tag_name }}
+      name: Upload
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
+      needs: [build-firmware, release]
+      steps:
+        - name: Download Artifact
+          uses: actions/download-artifact@v4.3.0
+          with:
+            path: files
+
+        - name: Tree
+          run: |-
+            tree
+
+        - name: Copy files to output
+          run: |-
+            shopt -s nullglob
+            mkdir output
+            version="${{ needs.release.outputs.tag_name }}"
+            pushd files
+            output_path="../output/"
+              for bin in *.{bin,elf}; do
+                md5sum $bin | head -c 32 > "${output_path}$bin.md5"
+                sha256sum $bin | head -c 64 > "${output_path}$bin.sha256"
+                cp $bin "$output_path"
+              done
+            popd
+
+        - name: Upload files to release
+          uses: softprops/action-gh-release@v2.3.2
+          with:
+            files: output/*
+            tag_name: ${{ needs.release.outputs.tag_name }}
 
   deploy_mkdocs:
     name: Deploy MkDocs and Firmware to GitHub Pages
