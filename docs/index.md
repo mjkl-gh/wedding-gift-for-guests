@@ -32,7 +32,7 @@ Om het systeem te bouwen gaan we verschillende stappen doorlopen. Namelijk,
 - [Aansluiten van de batterijen](instructions/04-batteries.md)
 - [Testen](instructions/05-testing.md)
 
-Als je de weg kwijt raakt staan deze stappen in het menu hier links op volgorde. Je kan beginnen door [hier](instructions/flashing-firmware.md) te klikken
+Als je de weg kwijt raakt staan deze stappen in het menu hier links op volgorde. Je kan beginnen door [hier](instructions/01-flashing-firmware.md) te klikken
 
 ## Home assistant en Esphome
 
