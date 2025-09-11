@@ -7,7 +7,7 @@ Op deze website leg ik uit wat het kado is. Wat je er mee kan en hoe je het in e
 Allereerst, wat gaan we maken:
 
 ## Een automatisch bewateringssysteem!
-![plant monitor](img/IMG_20250908_232639.jpg)
+![plant monitor](img/IMG_20250910_191535.png)
 
 Als jullie als duo aanwezig waren, kon je zowel een "Van Hem" als "Van Haar" kado meepakken. Van Anna hebben jullie een bloempot gehad met heerlijke truffelkruidnoten.
 
@@ -25,11 +25,11 @@ Mischien dat je dit op de bruiloft wel even uitgeprobeerd hebt
 
 Om het systeem te bouwen gaan we verschillende stappen doorlopen. Namelijk,
 
-- Flashen van de firmware
-- Aansluiten van de sensor
-- Aansluiten van de pomp
-- Aansluiten van de batterijen
-- Testen
+- [Flashen van de firmware](instructions/flashing-firmware.md)
+- [Aansluiten van de sensor](instructions/sensor.md)
+- [Aansluiten van de pomp](instructions/pump.md)
+- [Aansluiten van de batterijen](instructions/batteries.md)
+- [Testen](instructions/testing.md)
 
 Als je de weg kwijt raakt staan deze stappen in het menu hier links op volgorde. Je kan beginnen door [hier](instructions/flashing-firmware.md) te klikken
 ## Home assistant en Esphome
