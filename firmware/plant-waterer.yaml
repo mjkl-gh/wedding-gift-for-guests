@@ -8,7 +8,7 @@ esphome:
   name_add_mac_suffix: true
   project:
     name: mjkl-gh.${name}
-    version: 0.0.1
+    version: PLACEHOLDER
 
 esp32:
   board: esp32dev
@@ -84,7 +84,7 @@ binary_sensor:
     id: binary_soil_moisture
     name: Soil Moisture
     device_class: moisture
-    filter:
+    filters:
       - delayed_on: 100ms
       - delayed_off: 100ms
     on_press:
