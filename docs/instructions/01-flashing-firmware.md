@@ -1,5 +1,7 @@
 # De firmware flashen
 
+Hier lees je alles over het flashen van de firmware. Mocht je klaar zijn met de standaard firmware die ik meelever? Pas hem aan! Volg deze [link](../bonus/modifying-firmware.md) naar de bonuspagina om te leren hoe je je eigen firmware schrijft
+
 ## Flashen
 
 Om de firmware naar de microcontroller te flashen moeten we de microcontroller via usb aansluiten op onze computer. Haal de microcontroller uit de verpakking en sluit hem direct aan op je computer zoals in onderstaande foto
