@@ -21,7 +21,7 @@ logger:
 # Enable Home Assistant API
 api:
 
-# Allow OTA updates
+# Allow Over-The-Air updates
 ota:
   - platform: esphome
 
@@ -39,7 +39,7 @@ captive_portal:
 
 dashboard_import:
   package_import_url: github://mjkl-gh/wedding-gift-for-guests/firmware/plant-waterer.yaml@latest
-  import_full_config: true # or true
+  import_full_config: true
 
 # Sets up Bluetooth LE (Only on ESP32) to allow the user
 # to provision wifi credentials to the device.
@@ -49,6 +49,15 @@ esp32_improv:
 # To have a "next url" for improv serial
 web_server:
 
+# This sensor reads the analog voltage coming from the Soil Moisture sensor
+# The sensor is connected to pin 32 (ADC1_CH4) on the ESP32
+# The sensor outputs a voltage between 1.795V (dry) and 1.43V (wet)
+# The voltage is then converted to a percentage using the calibrate_linear filter
+# The percentage is then smoothed using a sliding_window_moving_average filter
+# and a median filter to remove any spikes in the readings.
+# The sensor is updated every 10 seconds.
+# The sensor is named "Soil Moisture Value" and has an icon of a flower
+# The sensor is also given an id of "soil_moisture" to allow other components to reference it.
 sensor:
   - platform: adc
     pin: 32
@@ -72,8 +81,7 @@ sensor:
           send_first_at: 3
 
 # This sensor is useful as a trigger for automation in Home Assistant
-# change the value of (soil_moisture).state > to desired threshold
-# anything below this value will report dry in home assistant.
+# anything below the threshold will report dry in home assistant.
 binary_sensor:
   - platform: gpio
     pin:
@@ -112,6 +120,12 @@ output:
     id: relay
     inverted: True
 
+# This is the script that runs when the soil moisture sensor is triggered
+# It will run the water pump for 1 second, then wait 9 seconds and check
+# the soil moisture sensor again. If the sensor is still triggered it will
+# run the pump again. This will continue until the sensor is no longer triggered.
+# This is to prevent overwatering the plant if the sensor is faulty or
+# the plant is not absorbing the water fast enough.
 script:
   - id: water_pump
     then:
