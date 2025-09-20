@@ -8,7 +8,7 @@ Allereerst, wat gaan we maken:
 
 ## Een automatisch bewateringssysteem!
 
-![plant monitor](img/IMG_20250910_191535.png)
+![plant monitor](img/example.png)
 
 Als jullie als duo aanwezig waren, kon je zowel een "Van Hem" als "Van Haar" kado meepakken. Van Anna hebben jullie een bloempot gehad met heerlijke truffelkruidnoten.
 
