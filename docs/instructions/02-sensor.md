@@ -41,4 +41,8 @@ En verbind vervolgens de signaalpinnen met de juiste pinnen. Namelijk `D32` voor
 
 ![esp32 met versterker laatste 2 kabels](../img/esp32-amplifier-last-2.jpg)
 
+Als je de usb print nu een usb voeding hangt kan je het dashboard bezoeken zoals genoemd onder [Verbinding maken met het dashboard](01-flashing-firmware.md#verbinding-maken-met-het-dashboard)
+
+Je zal nu zien dat de waarden op het dashboard matchen met de sensoren, mits je ze goed aangesloten heb. Pak een glas water erbij en je kan de sensor testen.
+
 Als je dit hebt aangesloten kan je verder met [link](03-pump.md)
