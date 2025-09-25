@@ -5,7 +5,12 @@ substitutions:
 esphome:
   name: "${name}"
   friendly_name: "${friendly_name}"
-  name_add_mac_suffix: true
+  # Use this to add a mac suffix to the device name to make it unique
+  # Unfortunately this makes it harder to discover for non home assistant users
+  # So for this project we turn it off by default
+  # However if you have multiple devices with the same name on your network
+  # You should enable this
+  # name_add_mac_suffix: true
   project:
     name: mjkl-gh.${name}
     version: PLACEHOLDER
