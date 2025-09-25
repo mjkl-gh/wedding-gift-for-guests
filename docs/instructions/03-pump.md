@@ -26,7 +26,7 @@ Dit kan met 3 vrouwtje-vrouwtje kabels met Dupont-stekkers. Schuif deze over de 
 
 Let goed op de `IN` `GND` en `VCC` namen van de pinnen. Sluit deze vervolgens correct aan op de micro controller
 
-![3-cables-relay-esp](../img/esp32-replay-3.jpg)
+![3-cables-relay-esp](../img/esp32-relay-3.jpg)
 
 Zorg dat `GND` op `G` komt, `VCC` op `V` en `IN` op `S` van `D23`
 
