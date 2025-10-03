@@ -6,7 +6,7 @@ site_description: >-
 
 nav:
   - Home: index.md
-  - Uitleg:
+  - Instructies:
       - Programmeren: instructions/01-flashing-firmware.md
       - Sensoren: instructions/02-sensor.md
       - Pomp: instructions/03-pump.md
