@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+  - toc
+---
 # Bedankje Bruiloft Anna & Maarten
 
 Welkom op de websit van het het "Van Hem" bedanktje van de bruiloft van Anna & Maarten. We willen jullie allereerst bedanken voor jullie aanwezigheid. We hopen dat het een gewedige avond was waar we het nog lang over zullen hebben.

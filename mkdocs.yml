@@ -4,6 +4,23 @@ site_author: Maarten Kleijwegt
 site_description: >-
   De website met uitleg om het bruiloftskado te assembleren en te programmeren.
 
+nav:
+  - Home: index.md
+  - Uitleg:
+      - Programmeren: instructions/01-flashing-firmware.md
+      - Sensoren: instructions/02-sensor.md
+      - Pomp: instructions/03-pump.md
+      - Batterijen: instructions/03-batteries.md
+      - Testen: instructions/04-testing.md
+  - Flash: flash.md
+  - Bonus:
+      - Extra grote batterij: bonus/battery-box.md
+      - Extra sensoren: bonus/extra-sensors.md
+      - Firmware aanpassen: bonus/modifying-firmware.md
+  - Over:
+      - Home assistant: about/homeassistant.md
+      - ESPHome: about/esphome.md
+
 # Repository
 repo_name: mjkl-gh/wedding-gift-for-guests
 repo_url: https://github.com/mjkl-gh/wedding-gift-for-guests
@@ -23,7 +40,6 @@ theme:
     - content.code.copy
     - content.tooltips
     - navigation.footer
-    - navigation.indexes
     - navigation.sections
     - navigation.tabs
     - navigation.top
@@ -60,3 +76,5 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+edit_uri: -/edit/main/docs/
