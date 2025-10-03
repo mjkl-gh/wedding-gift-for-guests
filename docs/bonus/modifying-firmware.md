@@ -22,7 +22,9 @@ Dingen die je mogelijk zou willen aanpassen:
 
 ## Esphome add-on
 
-Als je al home assistant thuis hebt, en daarbij de "Esphome Builder" add-on. Kan je in de add-on "Take control" activeren op de plant-waterer. De add-on zal dan mijn configuratie uit de repo downloaden en beschikbaar maken. Deze kan je dan naar hartelust aanpassen. Bijvoorbeeld als je de analoge sensor wilt calibreren. De esp kan vervolgens via "Over-The-Air" updates via wifi geupdate worden.
+Als je al home assistant thuis hebt, en daarbij de "Esphome Builder" add-on. Kan je in de add-on "Take control" activeren op de plant-waterer. De add-on zal dan mijn configuratie uit de repo downloaden en beschikbaar maken. Deze kan je dan naar hartelust aanpassen. Bijvoorbeeld als je de analoge sensor wilt kalibreren. De esp kan vervolgens via "Over-The-Air" updates via wifi ge-update worden.
+
+![take-control](../img/take-control.png)
 
 ## De repository forken
 
