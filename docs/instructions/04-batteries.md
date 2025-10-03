@@ -31,6 +31,6 @@ Schuif nu de krimpkous over de connectoren
 
 ![ready-heatshrink](../img/ready-heatshrink-battery.jpg)
 
-Gebruik nu een hittebron om de krimpkousen om de connectoren te krimpen. De batterijkabel is nu af. Als je er klaar voor bent kan je de connector in het PCB schuiven.
+Gebruik nu een hittebron om de krimpkousen om de connectoren te krimpen. De batterijkabel is nu af. Als je er klaar voor bent kan je de connector in het PCB schuiven. Stop 4 AAA batterijen in de batterijhouder. Als je het schuifje op de batterijhouder omzet, zouden er lampjes moeten gaan branden en zou het project tot leven moeten komen.
 
 Gefeliciteerd, Als alles goed is gegaan heb je nu een werkende opstelling. Nu kunnen we doorgaan met [testen en afstellen](05-testing.md)
