@@ -7,7 +7,7 @@ Dan komt nu het stuk waar het hopelijk allemaal samenkomt. het aansluiten van de
 - Striptang (optioneel)
 - Stekkertang (optioneel)
 
-Bij de set zat een kabel usb naar 5.5mm "DC barrel jack". Deze hebben we nodig, maar zonder de usb stekker. Deze kan je er dus afknippen met de zijkniptang. Strip vervolgens een stuk mantel van 3cm van de usb kabel af. Zorg dat de mantel van de binnenkabels hierbij heel blijft! 
+Bij de set zat een kabel usb naar 5.5mm "DC barrel jack". Deze hebben we nodig, maar zonder de usb stekker. Deze kan je er dus afknippen met de zijkniptang. Strip vervolgens een stuk mantel van 3cm van de usb kabel af. Zorg dat de mantel van de binnenkabels hierbij heel blijft!
 
 Als dit gelukt is strip je de uiteinden van de usb kabels een 0.5cm af. Doe dit heel voorzichtig de usb kabel is erg dun en dus fragiel. Deze gaan we weer verbinden met de kabel die uit de batterijdoos komt.
 
@@ -17,7 +17,7 @@ Leg de roze kabel in een krimpconnector, met de mantel in het eerste lipje en he
 
 ![ready-first-crimp](../img/ready-first-crimp-battery.jpg)
 
-Knijp de connector dicht door de lipjes dicht te vouwen. Eerst het limpje om de mantel dan het lipje om de gestripte kabel. Of gebruik een stekker krimptang
+Knijp de connector dicht door de lipjes dicht te vouwen. Eerst het lipje om de mantel dan het lipje om de gestripte kabel. Of gebruik een stekker krimptang
 
 ![first-crimp](../img/first-crimp.jpg)
 

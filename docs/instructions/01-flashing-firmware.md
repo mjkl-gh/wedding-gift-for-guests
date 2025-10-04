@@ -12,7 +12,7 @@ Het is hierbij belangrijk dat je de usb-c connector op de micro controller zelf 
 
 Vervolgens ga je naar de [flash-pagina](../flash.md) en klik je op connect om te verbinden met de micro controller. Installeer dan de laatste versie van mjkl-gh.plant-waterer.
 
-De firmware is gebaseerd op Esphome. Hierdoor is het super makkelijk om een configuratie te schrijven en deze te compileren. Of om deze configuratie aan te passen. De configuratie van deze firmware vind je [hier](https://github.com/mjkl-gh/wedding-gift-for-guests/blob/main/firmware/plant-waterer.yaml)
+De firmware is gebaseerd op ESPHome. Hierdoor is het super makkelijk om een configuratie te schrijven en deze te compileren. Of om deze configuratie aan te passen. De configuratie van deze firmware vind je [hier](https://github.com/mjkl-gh/wedding-gift-for-guests/blob/main/firmware/plant-waterer.yaml)
 
 ## Verbinding maken met wifi
 
@@ -42,7 +42,7 @@ Nu de micro controller aan je netwerk hangt kunnen we kijken of we bij het dashb
 
 ### Home assistant
 
-Als je al Home assistant hebt is dat veruit de makkelijkste optie. Ga in de app op of op de webpagina naar `Settings->Devices&Services->Esphome->Wedding Gift Plant Waterer xxxxxx` en klik op `Visit` Je webbrowser zou nu moeten openen op het dashboard.
+Als je al Home assistant hebt is dat veruit de makkelijkste optie. Ga in de app op of op de webpagina naar `Settings->Devices&Services->ESPHome->Wedding Gift Plant Waterer xxxxxx` en klik op `Visit` Je webbrowser zou nu moeten openen op het dashboard.
 
 ### Via mDNS
 
@@ -58,7 +58,7 @@ Als mDNS niet werkt kunnen we ook het ip adres achterhalen via de seriële poort
 
 ![Logs&Console](../img/Serial-Logs&Console.png)
 
-Als je nu op `Reset device` klikt zal de microcontroller opnieuwe opstarten. 1 van de berichten tijdens het opstarten bevat het zogenaamde ip adres zoals hieronder:
+Als je nu op `Reset device` klikt zal de microcontroller opnieuw opstarten. 1 van de berichten tijdens het opstarten bevat het zogenaamde ip adres zoals hieronder:
 
 ![ip-address](../img/log-ip-address.png)
 
@@ -66,6 +66,6 @@ Typ dit adres in de de adresbalk van je webbrowser om de pagina te bezoeken. Zoa
 
 ### Via je router
 
-Mocht je de microcontroller even buiten handbereik zijn, kan je het ip adres vaak ook opzoeken in de router. Dit is het kastje wat je vaak van je provider gekregen hebt en je huis van internet voorziet. Dit appraat deelt de adressen uit en houd hier vaak een logboek van bij. Hoe je deze informatie er echter uit kan halen verschild enorm per fabrikant. Vaak is de router te bereiken op een adres als `192.168.1.1` het specifieke adres staat op je laptop onder netwerk instellingen als "Default gateway"
+Mocht je de microcontroller even buiten handbereik zijn, kan je het ip adres vaak ook opzoeken in de router. Dit is het kastje wat je vaak van je provider gekregen hebt en je huis van internet voorziet. Dit apparaat deelt de adressen uit en houd hier vaak een logboek van bij. Hoe je deze informatie er echter uit kan halen verschild enorm per fabrikant. Vaak is de router te bereiken op een adres als `192.168.1.1` het specifieke adres staat op je laptop onder netwerk instellingen als "Default gateway"
 
 Als je vervolgens inlogt op de router zal er onder iets als "Netwerk" een apparaat aangemeld staan als `plant-waterer`. Bezoek het hierbij genoemde ip-adres om het dashboard te bezoeken.

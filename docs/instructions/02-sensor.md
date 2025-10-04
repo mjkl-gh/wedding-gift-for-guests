@@ -13,9 +13,9 @@ Voor het aansluiten van de sensoren gebruiken we de kabeltjes die bij de sensor 
 
 ## Capacitieve sensor vork
 
-De vork-vormige sensor verbind je met 2 kabeltjes aan het "versterker" bordje. Zoals hieronder:
+De vork-achtige sensor verbind je met 2 kabeltjes aan het "versterker" bordje. Zoals hieronder:
 
-![Vork-Verstker](../img/fork-amplifier.jpg)
+![Vork-Versterker](../img/fork-amplifier.jpg)
 
 De richting zou hier niet uit moeten maken omdat het hier om een passieve sensor gaat
 
@@ -45,4 +45,4 @@ Als je de usb print nu een usb voeding hangt kan je het dashboard bezoeken zoals
 
 Je zal nu zien dat de waarden op het dashboard matchen met de sensoren, mits je ze goed aangesloten heb. Pak een glas water erbij en je kan de sensor testen.
 
-Als je dit hebt aangesloten kan je verder met [link](03-pump.md)
+Als je dit hebt aangesloten kan je verder met [de pomp aansluiten](03-pump.md)

@@ -55,7 +55,7 @@ Pak nu de pomp erbij en verbind de rode draad met de rechter schroefklem. Zoals 
 
 We kunnen nu de pomp aansluiten op microcontroller. Knip nu een andere kleur kabel door. Je kan ook het andere eind van de blauwe hergebruiken. Maar dit verhoogt de kans op het fout aansluiten van de pomp, dus gebruik bij voorkeur een andere kleur.
 
-Deze kabel zullen we aan de zwarte draad van de pomp moeten krimpen. Eerst zullen we de zwarte heatshrink over de draad schuiven. Dat moet nu omdat dit later niet meer gaat!
+Deze kabel zullen we aan de zwarte draad van de pomp moeten krimpen. Eerst zullen we de zwarte krimpkous over de draad schuiven. Dat moet nu omdat dit later niet meer gaat!
 
 Pak het gouden connectortje en legt de zwarte draad daarin. Hij ligt goed als de eerste metalen klem bij de mantel zit en de tweede bij het koper. De eerste houdt namelijk de kabel stevig vast. De tweede maakt de verbinding. Zoals hieronder:
 
@@ -69,7 +69,7 @@ Nu de eerste kabel vast zit kunnen we de 2e kabel invoeren en krimpen. Herhaal h
 
 ![second-crimp](../img/second-crimp.jpg)
 
-En schuif vervolgens de heatshrink over de verbinding en hou deze bij een hittebron om hem om de verbinding te laten krimpen:
+En schuif vervolgens de krimpkous over de verbinding en hou deze bij een hittebron om hem om de verbinding te laten krimpen:
 
 ![successfull-pup-relay-wiring](../img/crimped-pump.jpg)
 

@@ -3,7 +3,7 @@
 Nu alle onderdelen in elkaar zitten kunnen we de opstelling gaan testen en uiteindelijk gaan afstellen.
 
 !!!! warning
-    Het werkt het beste als je de instructies voor het testen eerst volledig doorleest. En dan pas de stappen uitvoerd
+    Het werkt het beste als je de instructies voor het testen eerst volledig doorleest. En dan pas de stappen uitvoert
 
 ## Testen
 
