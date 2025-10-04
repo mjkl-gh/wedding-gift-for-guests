@@ -1,8 +1,8 @@
 # Aansluiten van de sensoren
 
-## Microctonroller op development board.
+## Microcontroller op development board
 
-Nadat de microcontroller geflasht is kunnen we hem op het zogenaamde "development board" prikken. 
+Nadat de microcontroller geflasht is kunnen we hem op het zogenaamde "development board" prikken.
 
 !!! warning
     Zorg dat hij hierbij in de goede richting staat anders matchen de pinnen niet en kan je de microcontroller beschadigen als je er spanning op zet!
@@ -19,7 +19,7 @@ De vork-achtige sensor verbind je met 2 kabeltjes aan het "versterker" bordje. Z
 
 De richting zou hier niet uit moeten maken omdat het hier om een passieve sensor gaat
 
-## Vesterker met esp32 development board erbinden
+## Versterker met esp32 development board verbinden
 
 Nu gaan we de sensor met de esp32 verbinden. Zorg eerst dat je 4 kabeltjes bij elkaar hebt zoals hieronder:
 
