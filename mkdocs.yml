@@ -10,15 +10,15 @@ nav:
       - Programmeren: instructions/01-flashing-firmware.md
       - Sensoren: instructions/02-sensor.md
       - Pomp: instructions/03-pump.md
-      - Batterijen: instructions/03-batteries.md
-      - Testen: instructions/04-testing.md
+      - Batterijen: instructions/04-batteries.md
+      - Testen: instructions/05-testing.md
   - Flash: flash.md
   - Bonus:
       - Extra grote batterij: bonus/battery-box.md
       - Extra sensoren: bonus/extra-sensors.md
       - Firmware aanpassen: bonus/modifying-firmware.md
   - Over:
-      - Home assistant: about/homeassistant.md
+      - Home assistant: about/home-assistant.md
       - ESPHome: about/esphome.md
 
 # Repository
